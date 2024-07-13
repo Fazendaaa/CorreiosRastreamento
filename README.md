@@ -1,5 +1,11 @@
 # CorreiosRastreamento
-API e SDK pra rastreamento de encomendas dos Correios
+SDK, API, PWA e Telegram bot pra rastreamento de encomendas dos Correios
+
+<div align="center">
+  <br>
+    <img width="260" src="./logo/logo.png" />
+  <br>
+</div>
 
 - [CorreiosRastreamento](#correiosrastreamento)
   - [References](#references)
