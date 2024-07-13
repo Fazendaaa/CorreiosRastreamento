@@ -1,24 +1,17 @@
-FROM node:v22.3.0 as builder
+FROM node:22.4.1 as builder
+
+WORKDIR /usr/src/
 
 COPY package.json .
 
 RUN [ "npm", "install"]
 
-COPY src .
+COPY jest.config.json .
+COPY tsconfig.json .
+COPY tests tests
+COPY src src
 
-RUN [ "npm", "run", "build" ]
-
-FROM node:v22.3.0 as tester
+ARG API=${API}
 
 RUN [ "npm", "test" ]
-
-FROM node:v22.3.0 as api-builder
-
-COPY src .
-COPY api .
-
-RUN [ "npm", "run", "build-api" ]
-
-FROM node:v22.3.0 as api-runnerer
-
-RUN [ "npm", "run", "server" ]
+RUN [ "npm", "run", "build" ]

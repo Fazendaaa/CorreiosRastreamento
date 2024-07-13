@@ -1,0 +1,12 @@
+services:
+  api:
+    build:
+      context: api
+    environment:
+      - API=${API}
+
+  pwa:
+    build:
+      context: pwa
+    environment:
+      - API=${API}
