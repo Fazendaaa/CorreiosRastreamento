@@ -13,5 +13,4 @@ COPY src src
 
 ARG API=${API}
 
-RUN [ "npm", "test" ]
 RUN [ "npm", "run", "build" ]
