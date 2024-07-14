@@ -6,11 +6,11 @@ COPY package.json .
 
 RUN [ "npm", "install"]
 
-COPY jest.config.json .
 COPY tsconfig.json .
+COPY jest.config.json .
 COPY tests tests
 COPY src src
 
 ARG API=${API}
 
-RUN [ "npm", "run", "build" ]
+RUN [ "npm", "run", "build-container" ]

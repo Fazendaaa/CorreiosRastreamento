@@ -27,6 +27,7 @@
     "es2015"
   ],
   "exclude": [
+    "tests",
     "api",
     "bot"
   ]

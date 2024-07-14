@@ -5,7 +5,8 @@
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.prod.json",
+    "build-container": "tsc",
     "doc": "typedoc",
     "test": "jest --config jest.config.json --ci --runInBand --forceExit --no-cache"
   },

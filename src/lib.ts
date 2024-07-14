@@ -22,11 +22,5 @@ export const tracking = async (id: string) => {
   const data = await trackRequest(id);
   const searchParcel = data["data"]["searchParcel"];
 
-  return {
-    ...searchParcel,
-    trackingOriginalEvent: JSON.parse(searchParcel["trackingOriginalEvent"]),
-    trackingOriginalRequest: JSON.parse(
-      searchParcel["trackingOriginalRequest"]
-    ),
-  };
+  return JSON.parse(searchParcel["trackingOriginalRequest"]);
 };
