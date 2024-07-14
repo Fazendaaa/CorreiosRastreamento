@@ -25,4 +25,6 @@ WORKDIR /usr/src/
 COPY --from=builder /usr/src/dist dist
 COPY --from=builder /usr/src/package.json package.json
 
+EXPOSE 80
+
 ENTRYPOINT [ "npm", "run", "server" ]
