@@ -1,4 +1,4 @@
-FROM node:22.4.1 as builder
+FROM node:22.4.1 AS builder
 
 WORKDIR /usr/src/
 

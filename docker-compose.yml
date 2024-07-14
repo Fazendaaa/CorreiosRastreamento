@@ -2,11 +2,14 @@ services:
   api:
     build:
       context: api
+      dockerfile: Dockerfile
     environment:
       - API=${API}
+    ports:
+      - 80:8000
 
-  pwa:
-    build:
-      context: pwa
-    environment:
-      - API=${API}
+  # pwa:
+  #   build:
+  #     context: pwa
+  #   environment:
+  #     - API=${API}

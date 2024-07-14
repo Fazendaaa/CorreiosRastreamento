@@ -1,24 +1,28 @@
-FROM node:22.4.1 as builder
+FROM fazenda/correios-sdk AS builder
+
+WORKDIR /usr/src/
 
 COPY package.json .
 
 RUN [ "npm", "install"]
 
+WORKDIR /usr/src/
+
 COPY src .
 
 RUN [ "npm", "run", "build" ]
 
-FROM node:22.4.1 as tester
+FROM fazenda/correios-sdk AS tester
+
+WORKDIR /usr/src/
 
 RUN [ "npm", "test" ]
 
-FROM node:22.4.1 as api-builder
+FROM fazenda/correios-sdk AS api-runnerer
 
-COPY src .
-COPY api .
+WORKDIR /usr/src/
 
-RUN [ "npm", "run", "build-api" ]
+COPY --from=builder /usr/src/dist dist
+COPY --from=builder /usr/src/package.json package.json
 
-FROM node:22.4.1 as api-runnerer
-
-RUN [ "npm", "run", "server" ]
+ENTRYPOINT [ "npm", "run", "server" ]
