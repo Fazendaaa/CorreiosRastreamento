@@ -2,9 +2,7 @@ import { createServer } from "https";
 import { parse } from "url";
 import { loggerMiddleware } from "correiosapi/middlewares";
 import { routes } from "correiosapi/routes";
-import { IncomingMessage, ServerResponse } from "http";
-
-type Methods = "GET" | "POST" | "PUT" | "DELETE" | "UPDATE" | "OPTIONS";
+import { Methods, Request } from "correiosapi/types";
 
 const PORT = process.env.PORT || 80;
 
@@ -14,8 +12,7 @@ createServer((req, res) => {
   const { method } = req;
   const options =
     routes[path as string] && routes[path as string][method as Methods];
-  let handler: (req: IncomingMessage, res: ServerResponse) => void =
-    routes["notFound"]["GET"];
+  let handler: Request = routes["notFound"]["GET"] as Request;
 
   if (!options) {
     const routeKeys = Object.keys(routes).filter((route) =>
@@ -43,7 +40,7 @@ createServer((req, res) => {
       // set params in req
       // req.params = params;
 
-      handler = dynamicHandler;
+      handler = dynamicHandler as Request;
     }
   }
 

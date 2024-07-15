@@ -1,7 +1,19 @@
-import { Routes } from "correiosapi/routes";
+import { Controller, Request } from "correiosapi/types";
+import { handleResponse } from "correiosapi/utils";
 
-export const tracking: Routes = {
-  GET: (_, res) = {
-    response(res, { data: { message: "running nodejs api" } });
+const GET: Request = (req, res) => {
+  try {
+    const { id } = res.params;
+
+    handleResponse(res, { data: { message: "running nodejs api" } });
+  } catch (error) {
+    handleResponse(res, {
+      status: 400,
+      data: { message: (error as Error).message },
+    });
   }
+};
+
+export const tracking: Controller = {
+  GET,
 };
