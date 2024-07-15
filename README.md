@@ -177,6 +177,7 @@ Tanto em promise como async/await espere o seguinte resultado:
 
 ## Bot
 
+Abra o chat com o bot no telegram: [@CUrreios](https://t.me/CUrreiosbot)
 
 ## PWA
 
