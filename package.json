@@ -2,8 +2,8 @@
   "name": "correiosrastreamento",
   "version": "1.0.0",
   "description": "SDK pra rastreamento de encomendas dos Correios",
-  "main": "dist/lib.js",
-  "types": "dist/lib.d.ts",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.prod.json",
     "build-container": "tsc",

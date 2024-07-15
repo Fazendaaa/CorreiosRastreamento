@@ -9,6 +9,13 @@ SDK, API, PWA e Telegram bot pra rastreamento de encomendas dos Correios
 
 - [CorreiosRastreamento](#correiosrastreamento)
   - [SDK](#sdk)
+    - [Instalação](#instalação)
+      - [NPM](#npm)
+      - [Yarn](#yarn)
+    - [Uso](#uso)
+      - [Promise](#promise)
+      - [Async/Await](#asyncawait)
+      - [Resultado](#resultado)
   - [API](#api)
   - [Bot](#bot)
   - [PWA](#pwa)
@@ -16,13 +23,47 @@ SDK, API, PWA e Telegram bot pra rastreamento de encomendas dos Correios
 
 ## SDK
 
+### Instalação
+
+#### NPM
+
+```shell
+npm install fazendaaa/correiosrastreamento
+```
+
+#### Yarn
+
+```shell
+yarn add 'correiosrastreamento@https://github.com/fazendaaa/correiosrastreamento'
+```
+
+### Uso
+
+#### Promise
+
 ```typescript
-import { tracking } from "correiosrastreamento/lib";
+import { tracking } from "correiosrastreamento";
 
 tracking("QQ850419295BR").then(console.log);
 ```
 
-Espere o seguinte resultado:
+#### Async/Await
+
+```typescript
+import { tracking } from "correiosrastreamento";
+
+const main = async (): void => {
+  const result = await tracking("QQ850419295BR");
+
+  console.log(result);
+};
+
+main();
+```
+
+#### Resultado
+
+Tanto em promise como async/await espere o seguinte resultado:
 
 ```json
 {
